@@ -6,6 +6,8 @@ namespace LBD.Queue
     {
         static void Main(string[] args)
         {
+            
+   
             Random random = new Random();
             #region 链表队列
             LinkQueue<int> linkQueue = new LinkQueue<int>();
@@ -15,6 +17,7 @@ namespace LBD.Queue
                 linkQueue.EnQueue(num);
                 Console.WriteLine("链表入队" + num);
             }
+            linkQueue.clear();
             for (int i = 0; i < 5; i++)
             {
                 Console.WriteLine("链表" + linkQueue.DeQueue());

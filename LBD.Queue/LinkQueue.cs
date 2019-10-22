@@ -51,6 +51,8 @@ namespace LBD.Queue
 
         public T DeQueue()
         {
+            if (IsEmtry())return default(T);
+
             //首元素出列 
             T result = head.Item;
             //出队列后 当前首元素为以前元素的next值
@@ -62,6 +64,12 @@ namespace LBD.Queue
             }
 
             return result;
+        }
+
+        public void clear()
+        {
+            this.Size = 0;
+            this.head = null;
         }
 
         public bool IsEmtry() => Size == 0;

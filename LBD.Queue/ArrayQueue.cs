@@ -86,6 +86,12 @@ namespace LBD.Queue
             }
             this.items = newItem;
         }
+
+        public void Clear()
+        {
+            this.items = default(T[]);
+            this.Size = 0;
+        }
         public bool IsEmpty() => this.Size==0;
 
 
