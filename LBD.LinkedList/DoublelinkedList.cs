@@ -105,7 +105,7 @@ namespace LBD.LinkedList
             else
             {
                 tempNode = new DbNode<T>(value);
-                DbNode<T> indexNode = GetNodeByIndex(index-1);
+                DbNode<T> indexNode = GetNodeByIndex(index);
                 DbNode<T> nextIndexNode = indexNode.Next;
 
                 indexNode.Next = tempNode;
@@ -143,7 +143,7 @@ namespace LBD.LinkedList
             else
             {
                 tempNode = new DbNode<T>(value);
-                DbNode<T> indexNode = GetNodeByIndex(index-1);
+                DbNode<T> indexNode = GetNodeByIndex(index);
                 DbNode<T> prveIndexNode = indexNode.Prev;
 
                 prveIndexNode.Next = tempNode;
@@ -163,7 +163,7 @@ namespace LBD.LinkedList
             }
             else
             {
-                DbNode<T> deleteNode = GetNodeByIndex(index-1);
+                DbNode<T> deleteNode = GetNodeByIndex(index);
                 DbNode<T> prveNode = deleteNode.Prev;
                 DbNode<T> nextNode = deleteNode.Next;
                 prveNode.Next = nextNode;

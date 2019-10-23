@@ -28,7 +28,7 @@ namespace LBD.LinkedList
                 doublelinked.AddAfter(num);
                 Console.WriteLine($"双链表添加成功{num}");
             }
-            doublelinked.InsertAfter(5, 77);
+            doublelinked.InsertAfter(4, 77);
             Console.WriteLine($"双链表为5节点后插入的值为77");
 
             doublelinked.InsertBefore(3, 101);
@@ -39,10 +39,16 @@ namespace LBD.LinkedList
 
             doublelinked.AddBefore(111);
             Console.WriteLine($"双链表尾节点之前插入111");
+            Console.WriteLine("删除前双链表数据");
+            for (int i = 0; i < doublelinked.Count; i++)
+            {
+                Console.WriteLine($"双链表查找索引为:{i}值为:{doublelinked[i]}");
+            }
 
+            doublelinked.RemoveAt(7);
+            Console.WriteLine($"双链表尾7节点数据删除");
 
-           
-
+            Console.WriteLine("删除后双链表数据");
             for (int i = 0; i < doublelinked.Count; i++)
             {
                 Console.WriteLine($"双链表查找索引为:{i}值为:{doublelinked[i]}");
