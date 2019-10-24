@@ -16,6 +16,11 @@ namespace LBD.Stack
             this.Index = 0;
         }
 
+        /// <summary>
+        /// 入栈 加入数组尾
+        /// </summary>
+        /// <param name="node"></param>
+
         public void Push(T node)
         {
             if (this.Index==this.Size)
@@ -25,6 +30,11 @@ namespace LBD.Stack
             nodes[this.Index] = node;
             this.Index++;
         }
+
+        /// <summary>
+        /// 出栈  出数组尾元素
+        /// </summary>
+        /// <returns></returns>
 
         public T Pop()
         {

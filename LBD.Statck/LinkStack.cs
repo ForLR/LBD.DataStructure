@@ -22,8 +22,10 @@ namespace LBD.Stack
     {
         public Node<T> First { get; set; }
 
-
-        public int Index { get; set; }
+        /// <summary>
+        /// 标识当前元素数量
+        /// </summary>
+        public int Index { get; set; } 
         public LinkStack()
         {
             First = null;
