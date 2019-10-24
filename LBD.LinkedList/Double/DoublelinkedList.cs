@@ -26,7 +26,7 @@ namespace LBD.LinkedList
 
         private DbNode<T> GetNodeByIndex(int index)
         {
-            if (index<0&&index>=this.Count)
+            if (index < 0|| index>=this.Count)
             {
                 throw new ArgumentOutOfRangeException("index", "索引超出范围");
             }

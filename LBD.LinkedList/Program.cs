@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LBD.LinkedList.Circular;
+using System;
 
 namespace LBD.LinkedList
 {
@@ -11,10 +12,13 @@ namespace LBD.LinkedList
             #endregion
 
             #region 双链表
-            DoubleLinkleList();
+            //DoubleLinkleList();
             #endregion
 
-          
+            #region 循环单链表
+            CircularLinkedListData();
+            #endregion
+
             Console.ReadKey();
         }
 
@@ -74,6 +78,26 @@ namespace LBD.LinkedList
             {
                 Console.WriteLine($"单链表查找索引为:{i}值为:{singleLinked[i]}");
             }
+        }
+
+        /// <summary>
+        /// 循环单链表
+        /// </summary>
+        public static void CircularLinkedListData()
+        {
+            CircularLinkedList<int> circularLinkedList = new CircularLinkedList<int>();
+            Random random = new Random();
+            for (int i = 0; i < 5; i++)
+            {
+                int num = random.Next(1,100);
+                circularLinkedList.Add(num);
+                Console.WriteLine($"循环单链表添加成功{num}");
+            }
+            Console.WriteLine(circularLinkedList.GetAllNodes());
+            circularLinkedList.RemoveAt(3);
+            Console.WriteLine("移除循环单链表索引3的值");
+            Console.WriteLine(circularLinkedList.GetAllNodes());
+
         }
     }
 }
