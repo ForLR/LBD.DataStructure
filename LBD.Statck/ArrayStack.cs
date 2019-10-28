@@ -23,9 +23,9 @@ namespace LBD.Stack
 
         public void Push(T node)
         {
-            if (this.Index==this.Size)
+            if (this.Index==this.Count)
             {
-                ResizeCapacity(this.Size*2);
+                ReCountCapacity(this.Count*2);
             }
             nodes[this.Index] = node;
             this.Index++;
@@ -38,21 +38,58 @@ namespace LBD.Stack
 
         public T Pop()
         {
-            if (this.Size==0)return default(T);
+            if (this.Count==0)return default(T);
             var result = nodes[--this.Index];
             nodes[this.Index] = default(T);
           
-            if (this.Index > 0 && this.Index == this.Size / 4)
+            if (this.Index > 0 && this.Index == this.Count / 4)
             {
-                ResizeCapacity(this.Size / 2);
+                ReCountCapacity(this.Count / 2);
 
             }
             return result;
         }
-        private void ResizeCapacity(int capacity)
+
+        /// <summary>
+        /// 返回栈顶元素 但不移除
+        /// </summary>
+        /// <returns></returns>
+
+        public T Peek()
+        {
+            if (this.Index==0)
+            {
+                throw new NullReferenceException("Stack为空");
+            }
+            return nodes[this.Index-1];
+        }
+
+        public void Clear()
+        {
+            this.nodes = new T[10];
+            this.Index = 0;
+        }
+
+        public bool Contains(T value)
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException("值为空");
+            }
+            for (int i = 0; i < this.Count; i++)
+            {
+                if (nodes[i].Equals(value))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void ReCountCapacity(int capacity)
         {
             T[] newNodes = new T[capacity];
-            int length = capacity >= this.Size ? Size : capacity;
+            int length = capacity >= this.Count ? Count : capacity;
             for (int i = 0; i < length; i++)
             {
                 newNodes[i] = nodes[i];
@@ -60,6 +97,6 @@ namespace LBD.Stack
             nodes = newNodes;
         }
         public bool IsEmtry() => this.nodes.Length == 0;
-        public int Size => this.nodes.Length;
+        public int Count => this.nodes.Length;
     }
 }

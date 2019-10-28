@@ -42,7 +42,8 @@ namespace LBD.Stack
                 linkStack.Push(num);
                 Console.WriteLine("入链表栈 " + num);
             }
-
+            var exist=linkStack.Contains(linkStack.First.Data) ?"是":"否";
+            Console.WriteLine($"是否存在值为{linkStack.First.Data} { exist}");
             for (int i = 0; i < 5; i++)
             {
                 Console.WriteLine("出链表栈 " + linkStack.Pop());
